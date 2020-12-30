@@ -8,23 +8,29 @@ def load_eda(request):
     print("load_eda 호출됨")
     if request.method == "POST":
         print("load_eda POST 요청됨")
-        num = request.POST.get('num', None)
-        # print(type(num))
-        # 구현
-        if num == '2':
-            html_context = overall_analysis()
-            
-        elif num == '3':
-            html_context = data_relation_1()
+        try:
+            num = request.POST.get('num', None)
+            # print(type(num))
+            # 구현
+            if num == '2':
+                html_context = overall_analysis()
+                
+            elif num == '3':
+                html_context = data_relation_1()
 
-        elif num == '4':
-            html_context = data_relation_2()
+            elif num == '4':
+                html_context = data_relation_2()
 
-        elif num == '5':
-            html_context = data_relation_3()
-            
-        print(html_context)
-        
+            elif num == '5':
+                html_context = data_relation_3()
+            elif num == '6':
+                html_context = verificate()
+            else:
+                raise Exception("불러올 페이지가 없습니다.")
+        except Exception as e:
+            raise KeyError
+
+        print(html_context)        
 
         context = {'hello':'world', 'html':html_context} # 구현
         # context = {'hello':'world'} # 구현

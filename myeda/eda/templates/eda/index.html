@@ -30,12 +30,12 @@
       <div class="sidebar-heading">US Health Insurance Dataset Analysis</div>
       <div class="list-group list-group-flush">
         <a href="" class="list-group-item list-group-item-action bg-light" name="1">Data Set에 대한 설명</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light" name="2">전반적인 데이터 분석</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light" name="3">데이터 상관관계 분석 Ⅰ</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light" name="4">데이터 상관관계 분석 Ⅱ</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light" name="5">데이터 상관관계 분석 Ⅲ</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light" name="6">데이터 검증</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light" name="7">(Appendix) DIY Graph !</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light" id="list-group-item" name="2">전반적인 데이터 분석</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light" id="list-group-item" name="3">데이터 상관관계 분석 Ⅰ</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light" id="list-group-item" name="4">데이터 상관관계 분석 Ⅱ</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light" id="list-group-item" name="5">데이터 상관관계 분석 Ⅲ</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light" id="list-group-item" name="6">데이터 검증</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light" id="list-group-item" name="7">(Appendix) DIY Graph !</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -161,6 +161,16 @@
           <!-- {% endautoescape %} -->
           <br>
           <br>
+          <h4>✏ 가설 세워보기</h4>
+
+          <ul>
+            <li><code>age, bmi</code>가 높고 (<code>smoker</code>=='yes')인 경우 <code>charges</code>가 높지 않을까?</li>
+            <li>(<code>sex</code>=='male')인 경우가 <code>smoker</code>의 비중이 높지 않을까?</li>
+            <li><code>children</code>이 많을수록 더 높은 <code>charges</code>를 가지지 않을까?</li>
+          </ul>
+          <br>
+          <br>
+          <br>
         </div>
       </div>
       <!-- /#container-fluid -->
@@ -187,11 +197,12 @@
     $(".list-group-item").on('click',function(e){
     // function ajax_call(){
       var num = $(this).attr('name');
-      if (num != '1'){
-        e.preventDefault();
+      if (num == 1){
+        return
       }
-      console.log(this);
+      e.preventDefault();
       console.log(num);
+      console.log(this);
       $.ajax({
         url: "{% url 'eda:eda' %}",
         type:"POST",
@@ -199,18 +210,12 @@
         dataType: "json",
         success: function(response){
           alert("통신 Success!");
-          // num에 따라 맞는 데이터 받아와서
-          // 뿌려주기..
-          // if (num != 1){
-            //   $(".container-fluid").html(num.toString(10));
-            // }
-            // $(".container-fluid").html(num.toString(10)); // tab idx 확인용
           $(".container-fluid").html(response['html']);
             
           },
         error: function(request, status, error){
           alert(error);
-          console.log("code = " + request.status + " message = " + request.responseText);
+          document.body.innerHTML = "<b>code = " + request.status + "<br> message = </b>" + request.responseText;
         },
       })
     });
