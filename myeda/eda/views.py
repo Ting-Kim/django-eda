@@ -10,7 +10,6 @@ def load_eda(request):
         print("load_eda POST 요청됨")
         try:
             num = request.POST.get('num', None)
-            # print(type(num))
             # 구현
             if num == '2':
                 html_context = overall_analysis()
@@ -30,10 +29,9 @@ def load_eda(request):
         except Exception as e:
             raise KeyError
 
-        print(html_context)        
+        # print(html_context)        
 
-        context = {'hello':'world', 'html':html_context} # 구현
-        # context = {'hello':'world'} # 구현
+        context = {'html':html_context} # 구현
 
         return HttpResponse(json.dumps(context), content_type="application/json")
 
@@ -42,9 +40,6 @@ def load_eda(request):
 
     return render(request, 'index.html', context)
 
-
-def post_eda(request):
-    return
     
 def ready_eda(request):
     context = {}

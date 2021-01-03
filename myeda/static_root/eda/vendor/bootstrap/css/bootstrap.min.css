@@ -387,6 +387,19 @@ hr {
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
+/* customize */
+#top-link-block.affix-top {
+  position: absolute; /* allows it to "slide" up into view */
+  bottom: -82px;
+  /* left: 10px;  */
+  right: 15px;
+}
+#top-link-block.affix {
+  position: fixed; /* keeps it on the bottom once in view */
+  bottom: 18px;
+  /* left: 10px; */
+  right: 10px;
+}
 .small,
 small {
   font-size: 80%;
