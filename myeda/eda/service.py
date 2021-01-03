@@ -123,7 +123,7 @@ def data_relation_1():
     temp.append(corr)
     temp.append("<br>❗ <code>(charges, age), (bmi, charges)</code> 상관계수가 높게 나왔다.<br><hr>")
 
-    temp.append("<br><br><b>&#60; <code>region</code> - <code>charges</code>&#62; (hue = <code>smoker</code>) </b>")
+    temp.append("<br><br><div><b>&#60; <code>region</code> - <code>charges</code>&#62; (hue = <code>smoker</code>) </b></div>")
 
     ## region - charges (hue = smoker)  Plot! 
     if is_in_Graph_plot("region_charges_smoker"):
@@ -139,7 +139,7 @@ def data_relation_1():
     temp.append(region_charges_smoker)
     
     ## region - charges (hue = sex)  Plot!
-    temp.append("<hr><br><b>&#60; <code>region</code> - <code>charges</code>&#62; (hue = <code>sex</code>) </b>")
+    temp.append("<hr><br><div><b>&#60; <code>region</code> - <code>charges</code>&#62; (hue = <code>sex</code>) </b></div>")
 
     if is_in_Graph_plot("region_charges_sex"):
         region_charges_sex = Graph_plot.objects.filter(name="region_charges_sex")[0]._html
@@ -155,7 +155,7 @@ def data_relation_1():
     temp.append('<br>✅ <code>charges</code>가 높은 표본은 흡연자인 경우가 대부분이다.<br><br><hr>')
 
     ## sex - age (hue = smoker)  Plot!
-    temp.append("<br><b>&#60; <code>sex</code> - <code>age</code>&#62; (hue = <code>smoker</code>) </b>")
+    temp.append("<br><div><b>&#60; <code>sex</code> - <code>age</code>&#62; (hue = <code>smoker</code>) </b></div>")
     
     if is_in_Graph_plot("sex_age_smoker"):
         sex_age_smoker = Graph_plot.objects.filter(name="sex_age_smoker")[0]._html
@@ -177,7 +177,7 @@ def data_relation_2():
     temp = ["<h3 class='mt-4'>데이터 간 관계를 파악해보자 Ⅱ</h3><hr>"]
 
     ## age - charges  Plot!
-    temp.append("<br><b>&#60; <code>age</code> - <code>charges</code> &#62;</b>")
+    temp.append("<br><div><b>&#60; <code>age</code> - <code>charges</code> &#62;</b></div>")
     
     if is_in_Graph_plot("age_charges"):
         age_charges = Graph_plot.objects.filter(name="age_charges")[0]._html
@@ -193,7 +193,7 @@ def data_relation_2():
     temp.append(age_charges)
 
     ## bmi - charges  Plot!
-    temp.append("<hr><br><br><b>&#60; <code>bmi</code> - <code>charges</code> &#62; (hue = <code>smoker</code>)</b>")
+    temp.append("<hr><br><br><div><b>&#60; <code>bmi</code> - <code>charges</code> &#62; (hue = <code>smoker</code>)</b></div>")
 
     if is_in_Graph_plot("bmi_charges"):
         bmi_charges = Graph_plot.objects.filter(name="bmi_charges")[0]._html
@@ -221,7 +221,7 @@ def data_relation_3():
     temp = ["<h3 class='mt-4'>데이터 간 관계를 파악해보자 Ⅲ</h3><hr>"]
 
     ## children - charges  Plot!
-    temp.append("<br><br><b>&#60; <code>children</code> - <code>charges</code> &#62;</b>")
+    temp.append("<br><br><div><b>&#60; <code>children</code> - <code>charges</code> &#62;</b></div>")
 
     if is_in_Graph_plot("children_charges"):
         children_charges = Graph_plot.objects.filter(name="children_charges")[0]._html

@@ -4,5 +4,5 @@ from . import views
 app_name = 'eda'
 urlpatterns = [
     path('bootstrap/', views.load_eda, name="eda"),
-    path('', views.load_eda, name="home"),
+    path('', views.ready_eda, name="ready"),
 ]

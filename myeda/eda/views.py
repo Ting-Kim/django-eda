@@ -46,4 +46,7 @@ def load_eda(request):
 def post_eda(request):
     return
     
+def ready_eda(request):
+    context = {}
+    return render(request, 'bootstrap_test.html', context)
 

@@ -32,7 +32,7 @@
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">US Health Insurance Dataset Analysis</div>
       <div class="list-group list-group-flush">
-        <a href="" class="list-group-item list-group-item-action bg-light" name="1">Data Set에 대한 설명</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light" name="1" style="background-color: #dae0e5!important;">Data Set에 대한 설명</a>
         <a href="#" class="list-group-item list-group-item-action bg-light" id="list-group-item" name="2">전반적인 데이터 분석</a>
         <a href="#" class="list-group-item list-group-item-action bg-light" id="list-group-item" name="3">데이터 상관관계 분석 Ⅰ</a>
         <a href="#" class="list-group-item list-group-item-action bg-light" id="list-group-item" name="4">데이터 상관관계 분석 Ⅱ</a>
@@ -201,8 +201,14 @@
     // function ajax_call(){
       var num = $(this).attr('name');
       if (num == 1){
+        document.getElementsByName("1")[0].setAttribute('style', 'background-color:#dae0e5!important;')
         return
       }
+      if (num == 7){
+        alert("준비 중인 서비스입니다 :)")
+        return
+      }
+      document.getElementsByName("1")[0].setAttribute('style', 'background-color:#f8f9fa!important;')
       e.preventDefault();
       console.log(num);
       console.log(this);
@@ -212,7 +218,7 @@
         data:{"num":num, "csrfmiddlewaretoken":'{{ csrf_token }}'},
         dataType: "json",
         success: function(response){
-          alert("통신 Success!");
+          // alert("통신 Success!");
           $(".container-fluid").html(response['html']);
             
           },
