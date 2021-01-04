@@ -1,6 +1,8 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 myeda/__pycache__/
+myeda/eda/__pycache__/
+myeda/myeda/__pycache__/
 *.py[cod]
 *$py.class
 
