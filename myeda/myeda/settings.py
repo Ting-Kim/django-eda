@@ -129,3 +129,23 @@ STATIC_DIR = os.path.join(BASE_DIR, 'eda', 'static', 'eda')
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
+
+# Logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'django_debug.log', # 저장할 파일 이름
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG', # 레벨
+            'propagate': True,
+        },
+    },
+}

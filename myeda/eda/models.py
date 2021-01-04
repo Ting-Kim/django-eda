@@ -18,6 +18,7 @@ class Dataframe(models.Model):
     name = models.CharField(max_length=40, null=False, unique=True)
     _html = models.TextField()
 
+
 class Graph_plot(models.Model):
     def __str__(self):
         return "%s-%s (hue=%s) Plot" % (self.x, self.y, self.hue)
@@ -29,3 +30,11 @@ class Graph_plot(models.Model):
     hue = models.CharField(max_length=30, null=True)
     _html = models.TextField()
 
+
+class Visitor(models.Model):
+    def __str__(self):
+        return self.name
+
+    # id (pk)
+    name = models.CharField(default="", max_length=60)
+    content = models.CharField(default="", max_length=500)

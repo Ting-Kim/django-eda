@@ -40,7 +40,28 @@ def load_eda(request):
 
     return render(request, 'index.html', context)
 
+
+def profile(request):
+    context = {}
+    return render(request, 'introduce.html', context)
+
+def letter(request):
+    if request.method == "POST":
+        print("letter POST 요청됨")
+        
+        ## 메시지 DB에 저장
+        name = request.POST.get("name")
+        content = request.POST.get("content")
+        save_letter(name, content)
+        ##
+        
+    else:
+        alert("올바른 요청이 아닙니다.")
+
+    return render(request, 'index.html', {})
     
+
+
 def ready_eda(request):
     context = {}
     return render(request, 'bootstrap_test.html', context)

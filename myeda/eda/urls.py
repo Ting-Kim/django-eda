@@ -3,6 +3,8 @@ from . import views
 
 app_name = 'eda'
 urlpatterns = [
-    path('bootstrap/', views.load_eda, name="eda"),
-    path('', views.ready_eda, name="ready"),
+    path('', views.load_eda, name="eda"),
+    path('profile/', views.profile, name="profile"),
+    path('letter/', views.letter, name="letter"),
+    path('test/', views.ready_eda, name="ready"),
 ]

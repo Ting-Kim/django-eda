@@ -9,7 +9,7 @@ from pathlib import Path
 import os
 import base64
 from io import BytesIO
-from .models import Dataframe, Graph_plot
+from .models import Dataframe, Graph_plot, Visitor
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 insurance_df = pd.read_csv(os.path.join(BASE_DIR, 'eda','static', 'eda','insurance.csv'))
@@ -290,3 +290,9 @@ def is_in_Graph_plot(plt_name):
         return True
 
 
+## 클라이언트에서 보낸 text를 DB에 저장하는 메서드..
+def save_letter(name, content):
+    visitor = Visitor(name=name, content=content)
+    visitor.save()
+    print(visitor, " 저장!")
+    return
