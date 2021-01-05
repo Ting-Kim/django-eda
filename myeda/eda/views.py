@@ -46,18 +46,26 @@ def profile(request):
     return render(request, 'introduce.html', context)
 
 def letter(request):
-    if request.method == "POST":
-        print("letter POST 요청됨")
-        
-        ## 메시지 DB에 저장
-        name = request.POST.get("name")
-        content = request.POST.get("content")
-        save_letter(name, content)
-        ##
-        
-    else:
-        alert("올바른 요청이 아닙니다.")
+    try:
+        if request.method == "POST":
+            print("letter POST 요청됨")
+            
+            ## 메시지 DB에 저장
+            name = request.POST.get("name")
+            content = request.POST.get("content")
+            save_letter(name, content)
+            ##
 
+            alert("전송 완료되었습니다.")
+            
+        else:
+            alert("올바른 요청이 아닙니다.")
+
+    except:
+        alert("예기치 못한 오류가 발생하였습니다.")
+    finally:
+        return render(request, 'index.html', {})
+        
     return render(request, 'index.html', {})
     
 
