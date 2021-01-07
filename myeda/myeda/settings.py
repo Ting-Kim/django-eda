@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '#fv#66v6h69y+4w36sfgb*fgsxezkoiha92(8lch!-=6u08t&d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -44,7 +44,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware', # 설정 추가
-    'whitenoise.middleware.WhiteNoiseMiddleware', # DEBUG=False 시 WhiteNoise(정적파일 관리) 추가해야 함.
+    # 'whitenoise.middleware.WhiteNoiseMiddleware', # DEBUG=False 시 WhiteNoise(정적파일 관리) 추가해야 함.
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -129,8 +129,10 @@ STATIC_DIR = os.path.join(BASE_DIR, 'eda', 'static', 'eda')
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # Logging
+'''
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -149,3 +151,4 @@ LOGGING = {
         },
     },
 }
+'''

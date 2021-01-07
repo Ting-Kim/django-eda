@@ -228,7 +228,7 @@
             <textarea placeholder="자유롭게 작성해주세요" name="content" cols="60" rows="5"></textarea>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-                <input type="submit" class="btn btn-primary"></button>
+		<input type="submit" class="btn btn-primary" onclick="result()"></button>
               </div>
             </form>
         </div>
@@ -307,6 +307,11 @@
     // $('#myModal').on('shown.bs.modal', function () {
     //   $('#myInput').focus()
     // })
+
+    function result(){
+      alert("전송이 완료되었습니다.");
+    }
+
   </script>
 
 </body>
